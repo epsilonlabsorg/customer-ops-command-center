@@ -1,0 +1,11 @@
+import { spawnSync } from 'node:child_process';
+import { writeFileSync } from 'node:fs';
+const result = spawnSync(process.execPath,['--test','--test-reporter=tap','tests/investigation.test.mjs','tests/database.test.mjs','tests/operations.test.mjs','tests/benchmark.test.mjs','tests/policy.test.mjs','tests/agent-graph.test.mjs','tests/chat-workflow.test.mjs','tests/case-queue.test.mjs'],{encoding:'utf8'});
+process.stdout.write(result.stdout || '');
+process.stderr.write(result.stderr || '');
+const output = result.stdout || '';
+const count = (label) => Number(output.match(new RegExp('^# ' + label + ' (\\d+)$','m'))?.[1] || 0);
+const total = count('tests'), failed = count('fail'), passed = count('pass');
+const report = {status:result.status === 0 && total > 0 ? 'passed' : 'failed',passed,failed,total,recordedAt:new Date().toISOString()};
+writeFileSync(new URL('../apps/support-console/lib/foundation-results.json',import.meta.url),JSON.stringify(report,null,2)+'\n');
+process.exit(result.status ?? 1);

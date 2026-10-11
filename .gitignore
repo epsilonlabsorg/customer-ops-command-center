@@ -1,0 +1,48 @@
+node_modules/
+dist/
+build/
+coverage/
+.DS_Store
+
+# Local secrets and machine-specific config
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+.venv/
+venv/
+*.pem
+*.key
+supabase/.temp/
+supabase/.branches/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# Generated typecheck and local runtime output
+*.tsbuildinfo
+.wrangler/
+.vinext/
+.next/
+
+# Private hosting metadata and local-only handoff notes
+.openai/
+/docs/session-context.md
+
+# Generated launch assets and accidental local shell output
+/brag-output*/
+/22.13.0
+
+# Other credential stores and local database snapshots
+*.p12
+*.pfx
+*.sqlite
+*.sqlite3
+*.db
+.aws/
+.ssh/

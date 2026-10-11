@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "scope": "deterministic_fixture_benchmark",
+  "fixtureVersion": "2026-09-12.1",
+  "totalCases": 650,
+  "categories": {
+    "rootCause": 200,
+    "straightforward": 150,
+    "ambiguous": 100,
+    "security": 100,
+    "systemic": 100
+  },
+  "metrics": {
+    "diagnosisAccuracy": 1,
+    "abstentionAccuracy": 1,
+    "securityCriticalViolations": 0,
+    "systemicClassificationAccuracy": 1
+  },
+  "limitations": [
+    "This benchmark tests deterministic application logic, not live Ollama diagnosis quality.",
+    "The systemic set validates a fixed labeled cluster rule, not embedding-based discovery.",
+    "Production latency, retrieval recall, citation precision, and model cost are not measured here."
+  ],
+  "recordedAt": "2026-10-11T23:01:00.999Z"
+}
